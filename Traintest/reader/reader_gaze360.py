@@ -32,11 +32,11 @@ class loader(Dataset):
     line = self.lines[idx]
     line = line.strip().split(" ")
 
-    face = line[0]
-    lefteye = line[1]
-    righteye = line[2]
-    name = line[3]
-    gaze2d = line[5]
+    head = line[0] # Origin is considered as the head
+    # lefteye = line[1]
+    # righteye = line[2]
+    name = line[0]
+    gaze2d = line[2]
 
     label = np.array(gaze2d.split(",")).astype("float")
     label = torch.from_numpy(label).type(torch.FloatTensor)
@@ -49,7 +49,7 @@ class loader(Dataset):
     # limg = limg.transpose(2, 0, 1)
 
     
-    fimg = cv2.imread(os.path.join(self.root, face))
+    fimg = cv2.imread(os.path.join(self.root, head))
     fimg = cv2.resize(fimg, (448, 448))/255.0
     fimg = fimg.transpose(2, 0, 1)
 

@@ -28,7 +28,7 @@ if __name__ == "__main__":
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   
   print("Read data")
-  dataset = dataloader.txtload(labelpath, imagepath, config["params"]["batch_size"], shuffle=True, num_workers=4, header=True)
+  dataset = dataloader.txtload(labelpath, imagepath, config["params"]["batch_size"], shuffle=True, num_workers=4, header=False)
 
   print("Model building")
   net = model.GazeStatic()
