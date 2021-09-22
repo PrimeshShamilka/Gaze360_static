@@ -48,8 +48,8 @@ def ImageProcessing_Gaze360():
         progressbar = "".join(["\033[41m%s\033[0m" % ' '] * int(i/total_num *20))
         progressbar = "\r" + progressbar + f" {i}|{total_num}"
         print(progressbar, end = "", flush=True)
-        if (face_bbox[i] == np.array([-1, -1, -1, -1])).all():
-            continue
+        # if (face_bbox[i] == np.array([-1, -1, -1, -1])).all():
+        #     continue
         category = splits[0, split_index[0, i]][0]
         gaze = gazes[i]
         img = cv2.imread(im_path)
