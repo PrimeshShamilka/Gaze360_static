@@ -37,7 +37,7 @@ class loader(Dataset):
     # righteye = line[2]
     name = line[0]
     gaze2d = line[2]
-
+    # if (name=="rec_034/head/000835/000293.jpg"):
     label = np.array(gaze2d.split(",")).astype("float")
     label = torch.from_numpy(label).type(torch.FloatTensor)
 

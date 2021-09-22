@@ -37,7 +37,7 @@ def ImageProcessing_Gaze360():
             # os.makedirs(os.path.join(out_root, "Image", splits[0, i][0], "Right"))
             # os.makedirs(os.path.join(out_root, "Image", splits[0, i][0], "Head"))
         outfiles.append(open(os.path.join(out_root, "Label", f"{splits[0, i][0]}.label"),'w'))
-        outfiles[i].write("Origin 3DGaze 2DGaze\n") # process each image
+        # outfiles[i].write("Origin 3DGaze 2DGaze\n") # process each image
 
     for i in range(total_num):
         im_path = os.path.join(root, "imgs",

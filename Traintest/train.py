@@ -53,34 +53,33 @@ if __name__ == "__main__":
   with open(os.path.join(savepath, "train_log"), 'w') as outfile:
     for epoch in range(1, config["params"]["epoch"]+1):
       for i, (data, label) in enumerate(dataset):
-
         # Acquire data
         data["face"] = data["face"].to(device)
         label = label.to(device)
  
         # forward
-        gaze, gaze_bias = net(data)
-
-        # loss calculation
-        loss = loss_op(gaze, label, gaze_bias)
-        optimizer.zero_grad()
-
-        # backward
-        loss.backward()
-        optimizer.step()
-        scheduler.step()
-        cur += 1
-
-        # print logs
-        if i % 20 == 0:
-          timeend = time.time()
-          resttime = (timeend - timebegin)/cur * (total-cur)/3600
-          log = f"[{epoch}/{config['params']['epoch']}]: [{i}/{length}] loss:{loss} lr:{base_lr}, rest time:{resttime:.2f}h"
-          print(log)
-          outfile.write(log + "\n")
-          sys.stdout.flush()   
-          outfile.flush()
-
-      if epoch % config["save"]["step"] == 0:
-        torch.save(net.state_dict(), os.path.join(savepath, f"Iter_{epoch}_{modelname}.pt"))
+      #   gaze, gaze_bias = net(data)
+      #
+      #   # loss calculation
+      #   loss = loss_op(gaze, label, gaze_bias)
+      #   optimizer.zero_grad()
+      #
+      #   # backward
+      #   loss.backward()
+      #   optimizer.step()
+      #   scheduler.step()
+      #   cur += 1
+      #
+      #   # print logs
+      #   if i % 20 == 0:
+      #     timeend = time.time()
+      #     resttime = (timeend - timebegin)/cur * (total-cur)/3600
+      #     log = f"[{epoch}/{config['params']['epoch']}]: [{i}/{length}] loss:{loss} lr:{base_lr}, rest time:{resttime:.2f}h"
+      #     print(log)
+      #     outfile.write(log + "\n")
+      #     sys.stdout.flush()
+      #     outfile.flush()
+      #
+      # if epoch % config["save"]["step"] == 0:
+      #   torch.save(net.state_dict(), os.path.join(savepath, f"Iter_{epoch}_{modelname}.pt"))
 
