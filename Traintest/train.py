@@ -139,3 +139,4 @@ if __name__ == "__main__":
       # if epoch % config["save"]["step"] == 0:
       #   torch.save(net.state_dict(), os.path.join(savepath, f"Iter_{epoch}_{modelname}.pt"))
 
+/content/gdrive/MyDrive/FYP/saved_models/gaze360_all360
